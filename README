@@ -1,0 +1,71 @@
+Game developed by Aaron Nhan for Kleiner Perkins Fellowship
+
+Super Memory!
+
+
+        Running the program
+
+    First, make sure you have the kivy library installed (pip install kivy. You may also be able to use sudo apt-get.)
+    If you have trouble use https://kivy.org/doc/stable/installation/installation-linux.html
+
+    enter "python main.py" in the game folder and the game should pop up.
+
+
+
+        Gameplay Instructions
+
+    Simple instructions: 
+
+Memorize cards when they are face up. When they turn over, match cards that are close in value and try to stay below the goal points
+
+
+    Advanced instructions:
+
+When you press the start button you will get n seconds to memorize cards (n = number of cards)
+You will try to match cards that have the least difference in their values. Suits do not matter.
+You will get points based on the difference in the values of the cards
+Points are bad. You want to stay below the goal number of points that the program suggests.
+
+Points are calculated by the square of the biggest difference from each card in its pairings. 
+Important: points are calculated per individual card. 
+If you select 2 cards, the total points will be the square of the greatest difference in the pairings two times
+
+You are allowed to select more than two cards at once! Each card in the pairing will determine
+the greatest difference in its set and add the square to the users points.
+This can be strategic if for example you have two groups of 3 cards that are very close in value.
+
+You can select one card but it will pair it up with a dummy 0 value card. This can be strategic
+if you have one low value card left.
+
+The goal score will always be achievable. You can take a picture if you really want to beat it haha.
+
+You can open the main.py file with a text editor and change the code up. I highly suggest changing the 
+cards_on_table variable to make the game more fun. It can handle values from 5 to 52.
+The window size will automatically change to accomodate more or less cards.
+
+
+
+
+        Design Choices/Data Structures:
+I decided to use the Kivy library with Python because I am very familiar with it and it is an all-star at quick development.
+I previously didn't know about the Kleiner-Perkins Fellowship until the UCSD meeting. From there, I only had a weekend jam packed
+with other class assignments to finish the project. Kivy is also cross-platform and I run my programs from terminal so I knew it would be compatible.
+
+I didn't see the need for setting up data structures when the user would likely only be using 10-20 cards at a time and I didn't need
+any insertions, deletions, or rigorous sorting. 
+
+I implemented a sort based on counting sort due to the irrelevence of suit and the low range of integer values the cards could have. 
+
+If I was handling many more cards on the table, I would still hesitate to use data structures besides array-backed lists.
+The game does not have insertions or deletions and the 0(1) lookup time would only get worse if I used another data structure.
+Sets were another data structure I was looking into but the only performance boost would be in my "if x is in list" command
+and I didn't want to have worse performance in iterating over the cards.
+
+Although I originally thought that making a full deck class with all 52 cards would be a waste of resources,
+I think it is a good design choice. It opens up the opportunity for further development and elegantly solves the problem of generating duplicate cards.
+
+The game uses an atlas to search up images which makes image load time faster and decreases the size of the game.
+
+
+    
+
