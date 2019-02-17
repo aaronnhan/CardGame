@@ -42,30 +42,3 @@ The goal score will always be achievable. You can take a picture if you really w
 You can open the main.py file with a text editor and change the code up. I highly suggest changing the 
 cards_on_table variable to make the game more fun. It can handle values from 5 to 52.
 The window size will automatically change to accomodate more or less cards.
-
-
-
-
-        Design Choices/Data Structures:
-I decided to use the Kivy library with Python because I am very familiar with it and it is an all-star at quick development.
-I previously didn't know about the Kleiner-Perkins Fellowship until the UCSD meeting. From there, I only had a weekend jam packed
-with other class assignments to finish the project. Kivy is also cross-platform and I run my programs from terminal so I knew it would be compatible.
-
-I didn't see the need for setting up data structures when the user would likely only be using 10-20 cards at a time and I didn't need
-any insertions, deletions, or rigorous sorting. 
-
-I implemented a sort based on counting sort due to the irrelevence of suit and the low range of integer values the cards could have. 
-
-If I was handling many more cards on the table, I would still hesitate to use data structures besides array-backed lists.
-The game does not have insertions or deletions and the 0(1) lookup time would only get worse if I used another data structure.
-Sets were another data structure I was looking into but the only performance boost would be in my "if x is in list" command
-and I didn't want to have worse performance in iterating over the cards.
-
-Although I originally thought that making a full deck class with all 52 cards would be a waste of resources,
-I think it is a good design choice. It opens up the opportunity for further development and elegantly solves the problem of generating duplicate cards.
-
-The game uses an atlas to search up images which makes image load time faster and decreases the size of the game.
-
-
-    
-
